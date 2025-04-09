@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Tickets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: white;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Book Your Ticket</h1>
+    <form action="BookTicketServlet" method="POST">
+     <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="train">Select Train</label>
+        <select id="train" name="train" required>
+          <option value="Express">Express Train</option>
+          <option value="Fast">Fast Train</option>
+          <option value="Superfast">Superfast Express</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="journey-date">Journey Date</label>
+        <input type="date" id="journey-date" name="journey-date" required>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="seat">Select Seat</label>
+        <select id="seat" name="seat" required>
+          <option value="Window">Window Seat</option>
+          <option value="Aisle">Side Lower</option>
+          <option value="Aisle">Side Upper</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Book Ticket</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

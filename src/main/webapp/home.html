@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-color: #333;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
+	
+
+    .nav-bar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;	
+    }
+
+    .nav-bar a:hover, .nav-bar a.active {
+      text-decoration: underline;
+    }
+
+    .home-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .home-left {
+      width: 60%;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .home-right {
+      width: 35%;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #45a049;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .quick-links a:hover {
+      background-color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <h1>Welcome to Railway Booking</h1>
+    <nav class="nav-bar">
+      <a href="home.html" class="active">Home</a>
+      <a href="trains.html">Book Tickets</a>
+      <a href="profile.jsp">Profile</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <div class="home-container">
+    <div class="home-left">
+      <h1>Book Your Train Tickets with Ease</h1>
+      <p>Welcome to our Railway Booking System, where you can find the best trains, check seat availability, and easily book tickets to your desired destinations. Plan your next journey in just a few clicks!</p>
+      <p>Explore our quick links below to get started, or log in to your profile for more personalized services.</p>
+      
+      <button class="cta-button" onclick="window.location.href='trains.html'">Check Train Availability</button>
+      <button class="cta-button" onclick="window.location.href='login.html'">Login</button>
+    </div>
+
+    <div class="home-right">
+      <h2>Quick Links</h2>
+      <div class="quick-links">
+        <a href="trains.html">View Train Availability</a>
+        <a href="trains.html">Book Tickets</a>
+        <a href="profile.html">View Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

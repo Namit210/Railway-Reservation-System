@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Railway Reservation System</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <h2>Search Trains</h2>
+                <form id="searchForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="from">From Station</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="from" required placeholder="Enter departure station">
+                                <span class="icon">🚂</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="to">To Station</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="to" required placeholder="Enter destination station">
+                                <span class="icon">📍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date of Journey</label>
+                            <div class="input-with-icon">
+                                <input type="date" id="date" required>
+                                <span class="icon">📅</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="class">Class</label>
+                            <div class="input-with-icon">
+                                <select id="class" required>
+                                    <option value="">Select Class</option>
+                                    <option value="1A">First AC</option>
+                                    <option value="2A">Second AC</option>
+                                    <option value="3A">Third AC</option>
+                                    <option value="SL">Sleeper</option>
+                                </select>
+                                <span class="icon">💺</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="search-btn">
+                        <span class="btn-icon">🔍</span>
+                        Search Trains
+                    </button>
+                </form>
+            </div>
+
+            <div class="results-section" id="results">
+                <h2>Available Trains</h2>
+                <div class="train-list" id="trainList">
+                   
+                </div>
+            </div>
+
+            <div class="popular-routes">
+                <h2>Popular Routes</h2>
+                <div class="route-grid">
+                    <div class="route-card">
+                        <h3>Delhi to Mumbai</h3>
+                        <p>Starting from ₹500</p>
+                        <button class="route-btn" onclick="quickSearch('Delhi', 'Mumbai')">Book Now</button>
+                    </div>
+                    <div class="route-card">
+                        <h3>Chennai to Bangalore</h3>
+                        <p>Starting from ₹300</p>
+                        <button class="route-btn" onclick="quickSearch('Chennai', 'Bangalore')">Book Now</button>
+                    </div>
+                    <div class="route-card">
+                        <h3>Kolkata to Delhi</h3>
+                        <p>Starting from ₹700</p>
+                        <button class="route-btn" onclick="quickSearch('Kolkata', 'Delhi')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Railway Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Railway Reservation System</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="profile.jsp">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="payment-section">
+                <h2>Payment Details</h2>
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-details">
+                        <p><strong>Train:</strong> Express Mail (12345)</p>
+                        <p><strong>From:</strong> Delhi</p>
+                        <p><strong>To:</strong> Mumbai</p>
+                        <p><strong>Date:</strong> 2024-03-20</p>
+                        <p><strong>Class:</strong> First AC</p>
+                        <p><strong>Fare:</strong> ₹2500</p>
+                    </div>
+                </div>
+
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label>Payment Method:</label>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="credit" required>
+                                <div class="payment-icon">💳</div>
+                                Credit Card
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="debit">
+                                <div class="payment-icon">💳</div>
+                                Debit Card
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="netbanking">
+                                <div class="payment-icon">🏦</div>
+                                Net Banking
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="upi">
+                                <div class="payment-icon">📱</div>
+                                UPI
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Card Payment Fields -->
+                    <div id="cardFields" class="payment-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="cardNumber" placeholder="Enter card number">
+                                <span class="icon">💳</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardName">Cardholder Name</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="cardName" placeholder="Enter cardholder name">
+                                <span class="icon">👤</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="expiry" placeholder="MM/YY">
+                                    <span class="icon">📅</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="cvv" placeholder="CVV">
+                                    <span class="icon">🔒</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Net Banking Fields -->
+                    <div id="netbankingFields" class="payment-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="bank">Select Bank</label>
+                            <select id="bank" class="form-control">
+                                <option value="">Select your bank</option>
+                                <option value="sbi">State Bank of India</option>
+                                <option value="hdfc">HDFC Bank</option>
+                                <option value="icici">ICICI Bank</option>
+                                <option value="axis">Axis Bank</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- UPI Payment Fields -->
+                    <div id="upiFields" class="payment-fields" style="display: none;">
+                        <div class="form-group">
+                            <label>Select UPI App</label>
+                            <div class="upi-apps">
+                                <button type="button" class="upi-app-btn" onclick="selectUpiApp('gpay')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Google_Pay_Logo.svg/1200px-Google_Pay_Logo.svg.png" alt="Google Pay">
+                                    Google Pay
+                                </button>
+                                <button type="button" class="upi-app-btn" onclick="selectUpiApp('phonepe')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/PhonePe_Logo.svg/1200px-PhonePe_Logo.svg.png" alt="PhonePe">
+                                    PhonePe
+                                </button>
+                                <button type="button" class="upi-app-btn" onclick="selectUpiApp('paytm')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Paytm_Logo.svg/1200px-Paytm_Logo.svg.png" alt="Paytm">
+                                    Paytm
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="upiId">UPI ID</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="upiId" placeholder="Enter UPI ID (e.g., 1234567890@upi)">
+                                <span class="icon">📱</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="search-btn">
+                        <span class="btn-icon">💳</span>
+                        Pay Now
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Railway Reservation System</p>
+        </footer>
+    </div>
+    <script src="payment.js"></script>
+</body>
+</html> 

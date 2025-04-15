@@ -2,7 +2,6 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.*;
@@ -16,8 +15,15 @@ public class UpdateProfileServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String dob = request.getParameter("dob");
         String name = request.getParameter("name");
+        String pass = request.getParameter("pass");
         
-        boolean updateSuccess = updateUserProfile(username, email, phone, dob, name);
+        boolean updateSuccess=false;
+		try {
+			updateSuccess = updateUserProfile(username, pass, email, phone, dob, name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         if (updateSuccess) {
             // Send updated values to the JSP to show the changes
@@ -37,16 +43,23 @@ public class UpdateProfileServlet extends HttpServlet {
     }
 
     
-    private boolean updateUserProfile(String username, String email, String phone, String dob, String name) throws SQLException {
+    private boolean updateUserProfile(String username, String password ,String email, String phone, String dob, String name) throws SQLException {
     	Connection conn = null;
-        PreparedStatement stmt = null;
         PreparedStatement stmt1 = null;
-        ResultSet userRs = null;
+       
         
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/railway", "amit", "password");
 	        String sql1 = "INSERT INTO users (username, pass, name, dob, email, phone) VALUES (?, ?, ?, ?, ?, ?)";
+	        stmt1 = conn.prepareStatement(sql1);
+	        stmt1.setString(1,username);
+	        stmt1.setString(2,password);
+	        stmt1.setString(3,name);
+	        stmt1.setString(4,dob);
+	        stmt1.setString(5,email);
+	        stmt1.setString(6,phone);
+	        stmt1.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

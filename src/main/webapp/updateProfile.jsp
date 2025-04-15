@@ -14,6 +14,9 @@
 		<label for="username">Username:</label><br>
         <input type="text" id="username" name="username" value="<%= request.getAttribute("username") != null ? request.getAttribute("username") : "" %>" ><br><br>
 		
+		<label for="pass">Username:</label><br>
+        <input type="password" id="pass" name="pass" value="<%= request.getAttribute("pass") != null ? request.getAttribute("username") : "" %>" ><br><br>
+		
 		<label for="dob">Date Of Birth:</label><br>
         <input type="date" id="dob" name="dob" value="<%= request.getAttribute("dob") != null ? request.getAttribute("dob") : "" %>" ><br><br>
 		

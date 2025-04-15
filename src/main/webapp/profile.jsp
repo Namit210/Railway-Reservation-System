@@ -4,6 +4,13 @@
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 <%
+    response.setHeader("Cache-Control", "no-store");  // HTTP 1.1
+    response.setHeader("Pragma", "no-cache");         // HTTP 1.0
+    response.setDateHeader("Expires", 0);             // Prevent caching
+%>
+
+<%
+
     
     if (session == null || session.getAttribute("uname") == null) {
         response.sendRedirect("login.html"); // If not logged in, redirect to login
@@ -204,7 +211,9 @@
       <nav class="nav-bar">
         <a href="book.html">Book Tickets</a>
         <a href="#">Profile</a>
-        <a href="login.html">Logout</a>
+        <form action="logout" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+    </form>
       </nav>
     </header>
 
